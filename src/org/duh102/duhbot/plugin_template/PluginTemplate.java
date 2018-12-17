@@ -7,14 +7,14 @@ import org.pircbotx.hooks.events.*;
 
 import org.duh102.duhbot.functions.*;
 
-public class PluginTemplate extends ListenerAdapter implements DuhbotFunction
+public class PluginTemplate extends ListenerAdapter implements ListeningPlugin
 {
   String string;
   public PluginTemplate()
   {
     string = "Hello world!";
   }
-  
+
   static String message;
   public void onMessage(MessageEvent event)
   {
@@ -24,19 +24,19 @@ public class PluginTemplate extends ListenerAdapter implements DuhbotFunction
       event.respond(string);
     }
   }
-  
-  public HashMap<String,String> getHelpFunctions()
+
+  public Map<String,String> getHelpFunctions()
   {
-    HashMap<String,String> helpFunctions = new HashMap<String,String>();
+    Map<String,String> helpFunctions = new HashMap<String,String>();
     helpFunctions.put("!template", String.format("Responds with %s", string));
     return helpFunctions;
   }
-  
+
   public String getPluginName()
   {
     return "Plugin Template";
   }
-  
+
   public ListenerAdapter getAdapter()
   {
     return this;
